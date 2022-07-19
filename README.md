@@ -30,7 +30,7 @@ Características específicas de Java 8 que fueron utilizadas:
 - Esto se hace para asegurar la existencia de las dependencias y generar el jar.
 
 **Ejecución**
-- Se peude ejecutar desde el IDE o desde el símbolo del sistema.
+- Se puede ejecutar desde el IDE o desde el símbolo del sistema.
 - Desde el simbolo del sistema:
 - Para ejecutar desde el simbolo del sistema, localizar la carpeta 'carpeta-del-proyecto\build\libs'
 - Desde esa capeta, ejecutar 'java -jar bci-users-1.0.0-SNAPSHOT.jar'
