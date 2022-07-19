@@ -29,10 +29,12 @@ public class UserServiceImpl implements UserService {
             throw new ConflictException(EnumException.DUPLICATE_EXCEPTION);
         }
 
-        user.setPassword(cryptoService.encrypt(user.getPassword()));
+        String unencrypted = user.getPassword();
+
+        user.setPassword(cryptoService.encrypt(unencrypted));
         user.setToken(tokenService.refreshToken(user.getEmail()));
         user = repository.createUserEntity(user);
-        user.setPassword(cryptoService.decrypt(user.getPassword()));
+        user.setPassword(unencrypted);
 
         return user;
 
