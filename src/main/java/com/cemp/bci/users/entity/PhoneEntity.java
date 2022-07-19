@@ -1,8 +1,11 @@
 package com.cemp.bci.users.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
+@JsonIgnoreProperties({"id"})
 @Entity
 @Table(name = "PHONE_TABLE")
 public class PhoneEntity implements Serializable {

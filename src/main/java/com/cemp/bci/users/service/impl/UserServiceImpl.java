@@ -1,9 +1,10 @@
 package com.cemp.bci.users.service.impl;
 
 import com.cemp.bci.users.entity.InputEntity;
-import com.cemp.bci.users.entity.PhoneEntity;
 import com.cemp.bci.users.enums.EnumException;
-import com.cemp.bci.users.exception.*;
+import com.cemp.bci.users.exception.ApplicationException;
+import com.cemp.bci.users.exception.ConflictException;
+import com.cemp.bci.users.exception.NotFoundException;
 import com.cemp.bci.users.service.CryptoService;
 import com.cemp.bci.users.service.TokenService;
 import com.cemp.bci.users.service.UserRepositoryService;
@@ -27,28 +28,13 @@ public class UserServiceImpl implements UserService {
         if (userEntity != null) {
             throw new ConflictException(EnumException.DUPLICATE_EXCEPTION);
         }
-        userEntity = new InputEntity();
-        userEntity.setName(user.getName());
-        userEntity.setEmail(user.getEmail());
-        userEntity.setPassword(cryptoService.encrypt(user.getPassword()));
 
-        if (user.getPhones() != null && !user.getPhones().isEmpty()) {
-            for (PhoneEntity phone : user.getPhones()) {
-                PhoneEntity pe = new PhoneEntity();
-                pe.setNumber(phone.getNumber());
-                pe.setCitycode(phone.getCitycode());
-                pe.setCountrycode(phone.getCountrycode());
-                userEntity.addPhone(pe);
-            }
-        }
+        user.setPassword(cryptoService.encrypt(user.getPassword()));
+        user.setToken(tokenService.refreshToken(user.getEmail()));
+        user = repository.createUserEntity(user);
+        user.setPassword(cryptoService.decrypt(user.getPassword()));
 
-        userEntity.setToken(tokenService.refreshToken(user.getEmail()));
-
-        userEntity = repository.createUserEntity(userEntity);
-
-        userEntity.setPassword(cryptoService.decrypt(userEntity.getPassword()));
-
-        return userEntity;
+        return user;
 
     }
 

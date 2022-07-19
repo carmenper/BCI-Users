@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "d1436f34-09ad-448f-a3c6-242acb90b46a",
+		"name": "BCI Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21099358"
+	},
+	"item": [
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Carlos Mendoza\",\r\n    \"email\": \"carlosmendozap@gmail.com\",\r\n    \"password\": \"Mypass12\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": 66104221,\r\n            \"citycode\": 9,\r\n            \"countrycode\": \"56\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/bci/user/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bci",
+						"user",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/bci/user/login/eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3NtZW5kb3phcEBnbWFpbC5jb20iLCJpYXQiOjE2NTgxNzE0MzN9.dR_BMf3CdeolzNchIxJwX4zdh34IAAhVI63qhbdGVEOkRudcdmy1XOO-i1xruw7iqzXumrt4prX4MdGQBCuy8Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bci",
+						"user",
+						"login",
+						"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3NtZW5kb3phcEBnbWFpbC5jb20iLCJpYXQiOjE2NTgxNzE0MzN9.dR_BMf3CdeolzNchIxJwX4zdh34IAAhVI63qhbdGVEOkRudcdmy1XOO-i1xruw7iqzXumrt4prX4MdGQBCuy8Q"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjYXJsb3NtZW5kb3phcGVycm9uZUBnbWFpbC5jb20iLCJpYXQiOjE2NTc5NDg3NDJ9.bJCf_OMwpqRd6KUSKtVGlU2qU34bN6rjkLGCR-Rl79L55avVqq6qVq5FNyNIeAhMkc6fb9MQtk53y4b5yPOx8g",
+			"type": "string"
+		}
+	]
+}
