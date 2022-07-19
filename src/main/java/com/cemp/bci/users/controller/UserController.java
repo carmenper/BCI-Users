@@ -2,14 +2,15 @@ package com.cemp.bci.users.controller;
 
 import com.cemp.bci.users.entity.InputEntity;
 import com.cemp.bci.users.enums.EnumException;
-import com.cemp.bci.users.exception.BadRequestException;
 import com.cemp.bci.users.exception.ApplicationException;
+import com.cemp.bci.users.exception.BadRequestException;
 import com.cemp.bci.users.service.UserService;
 import com.cemp.bci.users.util.BuilderUtil;
 import com.cemp.bci.users.util.ValidationUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,8 +40,8 @@ public class UserController {
 
         validateUser(inputUserEntity);
 
-        return ResponseEntity
-                .ok(userService.createUser(inputUserEntity));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(userService.createUser(inputUserEntity));
     }
 
     @GetMapping(value = "/login/{token}",
