@@ -18,6 +18,7 @@ El stack tecnológico es el siguiente:
 Características específicas de Java 8 que fueron utilizadas:
 - SHA-224 Message Digests (SHA-256)
 - Date/Time API (LocalDateTime)
+- Base64 Standard Utility Class
 
 **Prerequisitos**
 - JDK 8
