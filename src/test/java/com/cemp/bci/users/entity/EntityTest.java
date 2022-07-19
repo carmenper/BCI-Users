@@ -1,5 +1,6 @@
 package com.cemp.bci.users.entity;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -42,6 +43,8 @@ class EntityTest {
 
         userEntity.addPhone(phoneEntity);
         userEntity.setPhones(null);
+
+        Assertions.assertNotNull(userEntity);
 
     }
 }

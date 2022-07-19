@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public InputEntity createUser(InputEntity user) {
-        InputEntity userEntity = repository.getUserEntityByEmail(user.getEmail());
-        if (userEntity != null) {
+
+        if (repository.getUserEntityByEmail(user.getEmail()) != null) {
             throw new ConflictException(EnumException.DUPLICATE_EXCEPTION);
         }
 

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.util.ReflectionTestUtils;
 
-public class TokenServiceImplTest {
+class TokenServiceImplTest {
 
     private final TokenServiceImpl tokenService = new TokenServiceImpl();
 

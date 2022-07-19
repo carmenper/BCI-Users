@@ -23,12 +23,12 @@ class BuilderUtilTest {
 
     @Test
     void getUserCreationRequestTest() throws JsonProcessingException {
-        String userString = "{\"name\":\"Carlos Mendoza\",\"email\":\"carlosmendozaperrone@gmail.com\",\"password\":\"Mypass12\",\"phones\":[{\"number\":66104221,\"citycode\":9,\"countrycode\":\"56\"}]}";
+        String userString = "{\"name\":\"Carlos Mendoza\",\"email\":\"email@gmail.com\",\"password\":\"Mypass12\",\"phones\":[{\"number\":66104221,\"citycode\":9,\"countrycode\":\"56\"}]}";
         JsonNode userNode = mapper.readTree(userString);
         InputEntity user = builderUtil.getUser(userNode);
         Assertions.assertNotNull(user);
         Assertions.assertEquals("Carlos Mendoza", user.getName());
-        Assertions.assertEquals("carlosmendozaperrone@gmail.com", user.getEmail());
+        Assertions.assertEquals("email@gmail.com", user.getEmail());
         Assertions.assertEquals("Mypass12", user.getPassword());
         Assertions.assertNotNull(user.getPhones());
         Assertions.assertEquals(1, user.getPhones().size());

@@ -24,7 +24,10 @@ class DtoTest {
     @Test
     void getUserErrorResponse() {
         UserErrorResponse userErrorResponse = new UserErrorResponse(1, "detail");
-        userErrorResponse.getError();
 
+        Assertions.assertNotNull(userErrorResponse);
+        Assertions.assertNotNull(userErrorResponse.getError());
+        Assertions.assertEquals(1, userErrorResponse.getError().size());
+        Assertions.assertEquals("detail", userErrorResponse.getError().get(0).getDetail());
     }
 }
