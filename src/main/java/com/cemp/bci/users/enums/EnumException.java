@@ -13,7 +13,7 @@ public enum EnumException {
     REFRESH_EXCEPTION(1005, "Problemas creando/refrescando token."),
     BODY_EXCEPTION(1006, "Cuerpo de la solicitud para creación de usuario está vacio o es nulo."),
     NOT_FOUND_EXCEPTION(1007, "Usuario no pudo ser encontrado para el token proporcionado."),
-    MAPPING_EXCEPTION(1008, "Problemas transformando el cuerpo del request."),
+    MAPPING_EXCEPTION(1008, "Problemas transformando el cuerpo de la solicitud."),
     CRYPTO_EXCEPTION(1009, "Problemas generando el secreto de la criptografia."),
     ENCRYPTION_EXCEPTION(1010, "Problemas encriptando."),
     DECRYPTION_EXCEPTION(1011, "Problemas desencriptando."),

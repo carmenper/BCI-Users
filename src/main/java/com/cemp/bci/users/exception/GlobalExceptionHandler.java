@@ -24,7 +24,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                                                                   HttpHeaders headers,
                                                                   HttpStatus status,
                                                                   WebRequest request) {
-        String msg = "Cuerpo para la solicitud es requerido.";
+        String msg = "Cuerpo para la solicitud es requerido en formato JSON.";
         UserErrorResponse userErrorResponse =
                 new UserErrorResponse(HttpStatus.BAD_REQUEST.value(), msg);
         return buildResponseEntity(userErrorResponse, status);
