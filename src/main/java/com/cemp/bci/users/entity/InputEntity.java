@@ -1,5 +1,7 @@
 package com.cemp.bci.users.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,12 +20,15 @@ public class InputEntity extends UserEntity implements Serializable {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="user_id", nullable=false)
+    @OneToMany(mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JsonManagedReference
     private List<PhoneEntity> phones = new ArrayList<>();
 
     public void addPhone(PhoneEntity phone) {
         phones.add(phone);
+        phone.setUser(this);
     }
 
     public String getName() {

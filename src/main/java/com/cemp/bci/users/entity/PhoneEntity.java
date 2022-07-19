@@ -1,5 +1,6 @@
 package com.cemp.bci.users.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -23,6 +24,10 @@ public class PhoneEntity implements Serializable {
 
     @Column(name = "country_code")
     private String countrycode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    private InputEntity user;
 
     public Long getId() {
         return id;
@@ -54,6 +59,14 @@ public class PhoneEntity implements Serializable {
 
     public void setCountrycode(String countrycode) {
         this.countrycode = countrycode;
+    }
+
+    public InputEntity getUser() {
+        return user;
+    }
+
+    public void setUser(InputEntity user) {
+        this.user = user;
     }
 
 }
